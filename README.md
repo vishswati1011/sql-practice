@@ -48,3 +48,14 @@
     sum(discontinued) as total_discontinued 
     from products;
 ###
+
+6. Your task is to retrieve a list of artist names (Name) from the Artist table who don't have any associated albums in the Album table. Use the table columns and names provided in the challenge. Your output should consist of artist names (Name), ordered by their ArtistId.
+
+###
+    Select name from 
+      Artist left join Album 
+    on Artist.ArtistId=Album.ArtistId 
+    where 
+       Album.AlbumId is null
+    order by Artist.ArtistId;
+###
