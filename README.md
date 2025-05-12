@@ -38,3 +38,13 @@
     ORDER BY height DESC
     LIMIT 1;
 ###
+
+5. Show the average unit_price rounded to 2 decimal places as average_price , the total units in stock (use units_in_stock) across all products as total_stock, and the total discontinued products (use discontinued) from as total_discontinued the products table.
+
+###
+    SELECT Round(avg(unit_price),2) 
+    as average_price, 
+    sum(units_in_stock) as total_stock,
+    sum(discontinued) as total_discontinued 
+    from products;
+###
