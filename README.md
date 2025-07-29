@@ -72,18 +72,18 @@
 8. Your goal is to write a SQL query to show all columns for a patient with a patient_id of 542 based on their most recent admission_date.
    
 ###
-   SELECT * FROM 'admissions' where patient_id=542 group by patient_id having MAX(admission_date);
+    SELECT * FROM 'admissions' where patient_id=542 group by patient_id having MAX(admission_date);
 ###
 
 9. write a SQL query that returns the name of each city and the total number of patients residing in that city with the column name as num_patients. Your query should order the results first by the total number of patients (num_patients) in descending order, and then by the city name in ascending alphabetical order.
 
 ###
-   select city, count(patient_id) as num_patients 
-   from patients 
-   group by city 
-   order by 
-       num_patients desc,
-       city ASC;
+      select city, count(patient_id) as num_patients 
+      from patients 
+      group by city 
+      order by 
+          num_patients desc,
+          city ASC;
 ###
 
 10. 
@@ -126,15 +126,15 @@ Limit the output to the top 5 results.
 ## Answer
 
 ###
-   select ar.Name as ArtistName, 
-   sum(iv.UnitPrice * iv.Quantity) as TotalSales 
-   from Artist as ar join Album al 
-   on ar.ArtistId=al.ArtistId
-   join Track as tr 
-   on al.AlbumId=tr.AlbumId
-   join InvoiceLine as iv
-   on tr.TrackId=iv.TrackId
-   Group By ar.Name
-   Order By TotalSales DESC
-   Limit 5;
+      select ar.Name as ArtistName, 
+      sum(iv.UnitPrice * iv.Quantity) as TotalSales 
+      from Artist as ar join Album al 
+      on ar.ArtistId=al.ArtistId
+      join Track as tr 
+      on al.AlbumId=tr.AlbumId
+      join InvoiceLine as iv
+      on tr.TrackId=iv.TrackId
+      Group By ar.Name
+      Order By TotalSales DESC
+      Limit 5;
 ###
