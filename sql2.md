@@ -119,3 +119,16 @@ doctors(doctor_id,first_name,last_name)
      'Doctor' as "role" from doctors; 
 
 ###
+
+## 9. Your task is to count the number of invoices generated each year from the Invoice table.
+you have one table Invoice(InvoiceId, CustomerId,InvoiceDate)
+
+InvoiceDate like(2009-01-01 00:00:00,2010-01-10 00:00:00) so need to extact only year
+
+###
+     select substr(InvoiceDate,1,4) as "Year",
+     count(InvoiceId) as "InvoiceCount"
+     from Invoice 
+     Group by substr(InvoiceDate, 1, 4)
+     Order By "Year"
+###
