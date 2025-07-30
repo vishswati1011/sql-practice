@@ -132,3 +132,21 @@ InvoiceDate like(2009-01-01 00:00:00,2010-01-10 00:00:00) so need to extact only
      Group by substr(InvoiceDate, 1, 4)
      Order By "Year"
 ###
+
+### 10. Calculate a running total for each customer based on their invoices.
+
+Invoice Table = (invoiceId,sutomerId, InvoiceDate,Total)
+
+Note: Ordering: Order your results first by CustomerId and then by InvoiceDate in ascending order.
+
+###
+     SELECT
+       "CustomerId",
+       "InvoiceDate",
+       SUM("Total") OVER (PARTITION BY "CustomerId" ORDER BY "InvoiceDate") AS "RunningTotal"
+     FROM
+       "Invoice"
+     ORDER BY
+       "CustomerId",
+       "InvoiceDate";
+###
