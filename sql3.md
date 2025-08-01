@@ -16,3 +16,26 @@ Order your results by "GenreId" in ascending order to ensure consistency in outp
       order By "GenreId";
 ###
 
+## 2. Your task is to identify customers from the Customer table who have never made a purchase. This means they do not have any corresponding records in the Invoice table.
+
+###
+      select Customer.FirstName,Customer.LastName from 
+      Customer Left join Invoice
+      on Customer.CustomerId=Invoice.CustomerId
+      where Customer.CustomerId Not in
+      (select CustomerId from Invoice )
+      Order By Customer.CustomerId;
+###
+
+
+## 3. Determine the number of customers from each country.
+
+###
+      select Country , Count(CustomerId) as CustomerCount
+      from Customer
+      Group By (Country)
+      order by Country
+###
+
+
+
