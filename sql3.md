@@ -37,5 +37,24 @@ Order your results by "GenreId" in ascending order to ensure consistency in outp
       order by Country
 ###
 
+## 4. Calculate the total duration of each playlist in milliseconds.
 
+PlayList(playlistId,Name)
+
+PlayListTrack(playlistId,TrackId)
+
+Track(TrackId, Millesconds)
+
+<img width="619" height="544" alt="Screenshot 2025-08-01 140909" src="https://github.com/user-attachments/assets/49b8587c-fcc3-4d60-870d-cb6b9aec1972" />
+
+###
+      select Playlist.Name, sum(Track.Milliseconds) as 'TotalDuration' from Playlist
+
+      join PlaylistTrack
+      on PlaylistTrack.PlaylistId = Playlist.PlaylistId
+      join Track
+      on PlaylistTrack.TrackId = Track.TrackId
+      group by PlaylistTrack.PlaylistId
+      order by PlaylistTrack.PlaylistId
+###
 
