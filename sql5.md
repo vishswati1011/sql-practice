@@ -26,3 +26,27 @@ admissions (patients_id,admission_Date,discharge_date,attending_doctor_id)
           admission_date;
 ###
 
+## 39. Show the city, company_name, contact_name from the customers and suppliers table merged together. Create a column named "relationship" which contains 'customers' or 'suppliers' depending on the table it came from.
+
+###
+      SELECT
+          city,
+          company_name,
+          contact_name,
+          'customers' AS relationship
+      FROM
+          customers
+      
+      UNION ALL
+      
+      SELECT
+          city,
+          company_name,
+          contact_name,
+          'suppliers' AS relationship
+      FROM
+          suppliers
+      ORDER BY
+          city, company_name;
+###
+
