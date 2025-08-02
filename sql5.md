@@ -50,3 +50,15 @@ admissions (patients_id,admission_Date,discharge_date,attending_doctor_id)
           city, company_name;
 ###
 
+## 10. Sort the province names in ascending order in such a way that the province 'Ontario' is always on top
+
+###
+      SELECT province_name
+      FROM provinces
+      ORDER BY
+          CASE
+              WHEN province_name = 'Ontario' THEN 0 -- Assigns highest priority to Ontario
+              ELSE 1                              -- Assigns lower priority to all other provinces
+          END,
+          province_name ASC;  
+###
