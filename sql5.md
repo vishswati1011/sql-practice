@@ -50,7 +50,7 @@ admissions (patients_id,admission_Date,discharge_date,attending_doctor_id)
           city, company_name;
 ###
 
-## 10. Sort the province names in ascending order in such a way that the province 'Ontario' is always on top
+## 40. Sort the province names in ascending order in such a way that the province 'Ontario' is always on top
 
 ###
       SELECT province_name
@@ -61,4 +61,15 @@ admissions (patients_id,admission_Date,discharge_date,attending_doctor_id)
               ELSE 1                              -- Assigns lower priority to all other provinces
           END,
           province_name ASC;  
+###
+
+
+## 43. You will be tasked with listing the names of albums from the "Album" table that contain tracks in the "Track" table with "UnitPrice" higher than the average unit price across all available tracks.
+
+###
+      select Distinct(Album.Title) from Album
+      join Track on Album.AlbumId=Track.AlbumId
+      where Track.UnitPrice > 
+      (Select Avg(UnitPrice) from Track)
+      Order By Album.AlbumId;
 ###
